@@ -6,13 +6,14 @@ $postmeta_table = $wpdb->prefix . "postmeta";
 ?><main>
     <div class="blocky-child--narrow-page">
         <h1>Upcoming Events</h1>
-        <?php $query = 'select posts.id, posts.post_title from %i posts join %i postmeta on posts.id = postmeta.post_id and postmeta.meta_key = "date_and_time" where posts.post_type = "event" and posts.post_status = "publish" and postmeta.meta_value > now()';
+        <?php $query = 'select posts.id, posts.post_title, postmeta.meta_value as time_and_date from %i posts join %i postmeta on posts.id = postmeta.post_id and postmeta.meta_key = "date_and_time" where posts.post_type = "event" and posts.post_status = "publish" and postmeta.meta_value > now()';
         $results = $wpdb->get_results($wpdb->prepare($query, $posts_table, $postmeta_table), ARRAY_A);
         if ($results){
             echo '<div class="blocksy-child--event-result-container">';
             for ($i=0; $i < count($results); $i++){
                 echo '<div class="blocksy-child--event-result">';
-                echo $results[$i]['post_title'];
+                echo '<h2>' . $results[$i]['post_title'] . '</h2>';
+                echo '<p><strong>' . date('m', strtotime($results[$i]['time_and_date'])) . '/' . date('d', strtotime($results[$i]['time_and_date'])) . '/' . date('Y', strtotime($results[$i]['time_and_date'])) . ' at ' . (intval(date('H:i', strtotime($results[$i]['time_and_date']))) > 12 ? (intval(date('H:i', strtotime($results[$i]['time_and_date']))) - 12) . 'PM' : intval(date('H:i', strtotime($results[$i]['time_and_date']))) . 'AM')  . '</strong></p>';
                 echo '</div>';
             }
             echo '</div>';
