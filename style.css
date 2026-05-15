@@ -1,0 +1,23 @@
+/**
+ * Theme Name: Blocksy Child
+ * Description: Blocksy Child theme
+ * Author: Creative Themes
+ * Template: blocksy
+ * Text Domain: blocksy
+ */
+a{
+    text-decoration: underline !important;
+}
+.blocky-child--narrow-page{
+    width: 670px;
+    max-width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+.blocksy-child--centered-text{
+    text-align: center;
+}
+.blocksy-child--event-result-container{
+    background: var(--theme-palette-color-8);
+    padding: 20px;
+}
