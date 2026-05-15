@@ -14,6 +14,15 @@ a{
     margin: auto;
     padding: 40px;
 }
+.blocky-child--narrow-page--boxed{
+    width: 670px;
+    max-width: 90%;
+    margin: auto;
+    background: var(--theme-palette-color-8);   
+    padding: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 .blocksy-child--centered-text{
     text-align: center;
 }
