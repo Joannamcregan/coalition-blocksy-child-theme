@@ -13,7 +13,9 @@ $postmeta_table = $wpdb->prefix . "postmeta";
             for ($i=0; $i < count($results); $i++){
                 echo '<div class="blocksy-child--event-result">';
                 echo '<h2><a href="' . get_permalink($results[$i]['id']) . '">' . $results[$i]['post_title'] . '</a></h2>';
-                echo '<p><strong>' . the_field('date_and_time', $results[$i]['id'])  . '</strong></p>';
+                echo '<p><strong>';
+                echo the_field('date_and_time', $results[$i]['id']);
+                echo '</strong></p>';
                 echo '<p>' . get_the_excerpt($results[$i]['id']) . '</p>';
                 echo '</div>';
             }
